@@ -1,0 +1,182 @@
+@charset "utf8";
+@font-face{
+    font-family: "ubuntu-regular";
+    src : url(../fonts/ubuntu-regular.ttf);
+}
+*{
+    font-family: "ubuntu-regular";
+}
+p{
+    font-size: 16px!important;
+}
+html, body {height:100%;}
+#toTop{
+    display: none!important;
+}
+/*
+    CLASSES GLOBAIS
+    @author Joab Torres Alencar
+*/
+.text-ident{
+    text-indent: 30px;
+}
+.bgParallax {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+    min-height: 100%;
+    background-position: 50% 0;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.text-white{
+    color: white;
+}
+.text-laranja{
+  color: #FF3F00;
+}
+.text-lilas{
+  color: #930093;
+}
+.text-green{
+    color: #008241;
+}
+.text-green:hover, .text-green:focus{
+    color: #008241;
+}
+
+.bg-lilas{
+    background-color: #3F003F;
+    color: #EEEEEE;
+}
+.bg-lilas .page-title hr{
+    border-color: white;
+}
+
+.bg-lilas .page-title h1{
+    color: white;
+}
+
+.bg-branco{
+    background-color: white;
+    color: #555;
+}
+.bg-branco .page-title hr{
+    border-color: #008241;
+}
+
+.bg-branco .page-title h1{
+    color: #008241;
+}
+.img-center{
+    display: block;
+    margin: 10px auto;
+}
+.font-bold{
+    font-weight: bold;
+}
+.page-title h1,.page-title h3{
+    margin-bottom: 0;
+}
+.page-title hr{
+    min-width: 200px;
+    max-width: 500px;
+    border-width: 4px;
+    border-radius: 2px;
+    margin: 0;
+}
+.btn-left{
+  display: block;
+  float:right;
+}
+/*
+    HEADER
+    @author Joab Torres Alencar
+*/
+.navbar-default{
+    border-bottom: 4px solid #930093;
+    background: #FF4000;
+}
+.navbar-default .navbar-toggle{
+  background: white;
+  margin-top: 15px;
+}
+.navbar-default .navbar-brand{
+  height: auto;
+  color: white;
+}
+.navbar-default .navbar-brand:hover{color: #3F003F}
+.navbar-default .navbar-nav > li > a{
+    color: white;
+    padding: 25px 15px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover{
+    background-color: #930093;
+    color: white;
+}
+@media(max-width: 768px){
+    .navbar-default .navbar-nav > li > a{
+        padding: 15px;
+    }
+}
+/*
+    SECTION
+    @author Joab Torres Alencar
+*/
+
+#inicio{height: 100%;}
+#inicio-banner{
+    background-image: url('../imagens/bg-inicio.jpg');
+}
+#inicio-banner .margin-top{
+    margin-top: 25%;
+}
+#participantes{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#participantes:after{
+    content: '';
+    border: 3.125em solid #fff;
+    border-color: #fff transparent transparent transparent;
+    position: relative;
+    left: 47%;
+    bottom: -75px;
+}
+#participantes, #add-participantes, #rodape{
+    padding: 30px 0;
+}
+#participantes a:hover{
+  text-decoration: none;
+}
+#add-participantes:after{
+    content: '';
+    border: 3.125em solid #fff;
+    border-color: #3F003F transparent transparent transparent;
+    position: relative;
+    left: 47%;
+    bottom: -75px;
+}
+#add-participantes #form-add-participantes label{
+  font-weight: normal!important;
+}
+#add-participantes #form-add-participantes input{
+  background: none;
+  color: white;
+  border: 2px solid white;
+  font-size: 16px;
+  padding: 15px;
+  height: auto;
+}
+#add-participantes #form-add-participantes button{
+  background: none;
+  color: white;
+  border: 2px solid white;
+  font-size: 16px;
+}
+#add-participantes #form-add-participantes button:hover{
+  color: #ccc;
+  border: 2px solid #ccc ;
+}

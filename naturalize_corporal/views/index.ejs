@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Naturalize Corporal</title>
+
+        <!-- Bootstrap -->
+        <link rel="icon" type="image/png" href="imagens/icon.png" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+
+        <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+        <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body data-spy="scroll" data-target="#navbar-menu-header">
+        <!--MENU FIXO-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu-header">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><h4 class="font-bold">Naturalize Corporal</h4></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu-header">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#inicio" class="scroll">Inicial</a></li>
+                        <li><a href="#participantes" class="scroll">Participantes</a></li>
+                        <li><a href="#add-participantes" class="scroll">Adicionar</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--FIM MENU FIXO-->
+        <!--HOME-->
+        <div id="inicio" >
+            <div id="inicio-banner" class="bgParallax" data-speed="15">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="margin-top text-laranja">O DESÁFIO ESTÁ LANÇADO!</h2>
+                            <h4 class="">Cadastre você, amigos e familiares para saber quem está em plena forma.</h4>
+                            <h1 class="font-bold text-lilas">Naturalize Corporal</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- RANKING -->
+            <div id="participantes">
+              <div class="container bg-branco">
+                  <div class="row">
+                      <div class="col-md-12">
+                        <h2 class="text-center text-laranja">Ranking dos Participantes</h2>
+                      </div>
+                      <div class="col-md-12">
+                        <h3 class="text-center text-laranja">Campeão Atual</h3>
+                        <img src="imagens/campeao.png" alt="Campeão atual" class="img-center">
+                        <% var testLogico = true;
+                          for(var i=0;i<participantes.length;i++) {
+                            if(participantes[i].imc>=18 && testLogico){
+                              testLogico=false;
+                          %>
+                        <h3 class="font-bold text-center text-lilas"><%=participantes[i].nome%></h3>
+                        <%
+                            break;
+                            }
+                          }%>
+                        <br>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                              <tr class="text-laranja">
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Peso</th>
+                                <th>Altura</th>
+                                <th>G. Corporal (%)</th>
+                                <th>IMC</th>
+                                <th><i class="glyphicon glyphicon-eye-close"></i></th>
+                              </tr>
+                              <% for(var i=0;i<participantes.length;i++) {%>
+                              <tr class="text-lilas">
+                                <td><%= (i+1) %></td>
+                                <td><%= participantes[i].nome %></td>
+                                <td><%= participantes[i].peso %> kg</td>
+                                <td><%= participantes[i].altura %> m</td>
+                                <td><%= participantes[i].gordura %>%</td>
+                                <td>
+
+                                  <% var resultado= "";
+                                    if(participantes[i].imc>=16 && participantes[i].imc<=16.9){
+                                      resultado = participantes[i].imc+"kg/m² - Muito abaixo do peso";
+                                    }else if(participantes[i].imc>=17 && participantes[i].imc<=18.4){
+                                      resultado = participantes[i].imc+"kg/m² - Abaixo do peso";
+                                    }else if(participantes[i].imc>=18.5 && participantes[i].imc<=24.9){
+                                      resultado = participantes[i].imc+"kg/m² - Peso normal";
+                                    }else if(participantes[i].imc>=25 && participantes[i].imc<=29.9){
+                                      resultado = participantes[i].imc+"kg/m² - Acima do peso";
+                                    }else if(participantes[i].imc>=30 && participantes[i].imc<=34.9){
+                                      resultado = participantes[i].imc+"kg/m² - Obesidade Grau I";
+                                    }else if(participantes[i].imc>=35 && participantes[i].imc<=40){
+                                      resultado = participantes[i].imc+"kg/m² - Obesidade Grau II";
+                                    }else if(participantes[i].imc>40){
+                                      resultado = participantes[i].imc+"kg/m² - Obesidade Grau III";
+                                    }
+                                   %>
+                                  <%= resultado %>
+                                </td>
+                                <td><a href="delete/<%=participantes[i].id%>" class="glyphicon glyphicon-remove-sign text-lilas"></a></td>
+                              </tr>
+                              <%}%>
+                          </table>
+                        </div>
+                        <!-- <p class="text-center"><a href="#" class="btn btn-warning">Importar participantes</a></p> -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- ADICIONAR participantes -->
+          <div id="add-participantes" class="bg-lilas">
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h2 class="text-center">Adicionar Participantes</h2>
+                      <br>
+                  </div>
+                  <div class="col-md-offset-2 col-md-8">
+                      <form action="/add" method="post" id="form-add-participantes" autocomplete="off">
+                          <div class="form-group">
+                              <label for="iNome">Nome: <small class="text-laranja"> <i class="glyphicon glyphicon-info-sign"></i> Informe o nome completo de preferência.</small> </label>
+                              <input type="text" name="nome" id="iNome" placeholder="Exemplo: Joab Torres Alencar" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="iPeso">Peso:  <small class="text-laranja"> <i class="glyphicon glyphicon-info-sign"></i> Informe somente os números em quilogramas sem a sigla (KG), senão não será válido.</small></label>
+                              <input type="text" name="peso" id="iPeso" placeholder="Exemplo: 95.6" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="iAltura">Altura: <small class="text-laranja"> <i class="glyphicon glyphicon-info-sign"></i> Informe somente os números em metros sem a sigla (M), senão não será válido.</small></label>
+                              <input type="text" name="altura" id="iAltura" placeholder="Exemplo: 1.78" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="iIMC1">IMC: <small class="text-laranja"> <i class="glyphicon glyphicon-info-sign"></i> Índice de massa corporal.</small></label>
+                              <input type="text" name="nIMC1" id="iIMC1" placeholder="Será preenchido automaticamente após inserir os valores de ALTURA e PESO." class="form-control" disabled="true">
+                              <input type="hidden" name="imc" id="iIMC" placeholder="Exemplo: imc 29" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="iGCorporal">Gordura Corporal: <small class="text-laranja"> <i class="glyphicon glyphicon-info-sign"></i> Informe somente números entre (0.0 a 100.0), siga o exemplo abaixo.</small></label>
+                              <input type="text" name="gordura" id="iGCorporal" placeholder="Exemplo: 9.5" class="form-control">
+                          </div>
+                          <p class="text-left"><button type="button" name="nValidar" class="btn btn-default btn-left" onclick="validarCadastro()">+ Adicionar</button></p>
+                      </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- ADICIONAR participantes -->
+          <!--RODAPE-->
+           <div id="rodape" class="bg-verde">
+               <div class="container-fluid">
+                   <div class="row">
+                       <div class="col-md-12"><p class="text-center text-uppercase">&copy; Copyrigth 2017 - Joab Torres Alencar</p></div>
+                   </div>
+               </div>
+           </div>
+           <!--FIM RODAPE-->
+
+        <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+        <script src="/js/jquery-3.1.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/move-top.js"></script>
+        <script src="/js/naturalize_corporal.js"></script>
+    </body>
+</html>

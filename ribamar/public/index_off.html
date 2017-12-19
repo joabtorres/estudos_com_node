@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/nosso.css">
+    <title>Naturalize</title>
+</head>
+<body>
+    <h1 class="titulo">Naturalize Corporal</h1>
+
+    <section class="container">
+        <h2>Meus pacientes</h2>
+        <label>Pesquisar:
+            <input type="text" name="filtro" id="pesquisarNaTabela" placeholder="Digite o nome do paciente">
+        </label>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Peso</th>
+                    <th>Altura(m)</th>
+                    <th>Gordura Corporal(%)</th>
+                    <th>IMC</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaPacientes">
+                <tr class="paciente">
+                    <td class="iNome">Riba</td>
+                    <td class="iPeso">70</td>
+                    <td class="iAltura">1.68</td>
+                    <td class="iGordura">21</td>
+                    <td class="iImc">0</td>
+                </tr>
+                <tr class="paciente">
+                    <td class="iNome">Ana</td>
+                    <td class="iPeso">65</td>
+                    <td class="iAltura">1.75</td>
+                    <td class="iGordura">12</td>
+                    <td class="iImc">0</td>
+                </tr>
+                <tr class="paciente">
+                    <td class="iNome">Davi</td>
+                    <td class="iPeso">75</td>
+                    <td class="iAltura">1.75</td>
+                    <td class="iGordura">23</td>
+                    <td class="iImc">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <span id="erroAjax" class="invisivel">Erro ao importar os pacientes</span>
+        <button id="importarPacientes" class="botao btoPrincipal">Importar Pacientes</button>
+    </section>
+
+    <section class="container">
+        <h2 id="tituloForm">Adicionar novo paciente</h2>
+        <ul id="mensagensErro"></ul>
+
+        <form id="formAdiciona">
+            <div class="">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" class="campo campoMedio">
+            </div>
+
+            <div class="grupo">
+                <label for="peso">Peso:</label>
+                <input type="text" id="peso" name="peso" placeholder="Digite o seu peso" class="campo campoMedio">
+            </div>
+
+            <div class="grupo">
+                <label for="altura">Altura:</label>
+                <input type="text" id="altura" name="altura" placeholder="Digite a sua altura" class="campo campoMedio">
+            </div>
+
+            <div class="grupo">
+                <label for="gordura">Gordura(%):</label>
+                <input type="text" id="gordura" name="gordura" placeholder="Digite a porcentagem de gordura" class="campo campoMedio">
+            </div>
+
+            <button id="adicionarPaciente" class="botao btoPrincipal">Adicionar</button>
+        </form>
+    </section>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/calcula-imc.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/remover-paciente.js"></script>
+    <script src="js/pesquisar.js" ></script>
+    <script src="js/importar-pacientes.js"></script>
+    <script src="js/m.js"></script>
+    
+</body>
+</html>

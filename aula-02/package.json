@@ -1,0 +1,12 @@
+{
+  "name": "aula-02",
+  "version": "1.0.0",
+  "description": "Entendendo o protocolo http",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joab torres alencar <joabtorres1508@gmail.com>",
+  "license": "ISC"
+}
